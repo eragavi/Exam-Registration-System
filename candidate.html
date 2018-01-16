@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CANDIDATE DETAILS</title>
+<script>
+	function validate()  
+	{  
+	var x=document.candidate.email.value;  
+	var atposition=x.indexOf("@");  
+	var dotposition=x.lastIndexOf(".");  
+var phno=document.candidate.phno.value;
+var zip=document.candidate.zip.value;
+var age=document.candidate.age.value;
+	if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+	  alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+	  return false;  
+	  }  
+if(phno.length<10 || phno.length>10){  
+alert("Mobile number must be at least 10 digits!!!");  
+return false;  
+}  
+if(zip.length>6 || zip.length<6){  
+alert("Enter valid zip code!!!");  
+return false;  
+} 
+if(age.length>2 || age==""){  
+alert("Enter valid age!!!");  
+return false;  
+} 
+
+	}  
+</script>
+</head>
+
+<body background="exam.jpg">
+<form name="candidate" method="post" action="logs1.php" onsubmit="return validate();">
+<fieldset>
+<legend style="text-align:center">PERSONAL INFORMATION</legend>
+Name: <input type="text" name="name" required>
+   <br><br>
+Gender:
+   <input type="radio" name="gender" value="female">Female
+   <input type="radio" name="gender" value="male">Male
+   <br><br>
+Age:
+<input type="text" name="age">
+<br><br>
+Qulaification:
+   <input type="radio" name="qualification" value="be">BE
+   <input type="radio" name="qualification" value="other degrees">Other degrees
+   <br><br>
+</fieldset>
+<br><br>
+<fieldset>
+<legend style="text-align:center">CONTACT INFORMATION</legend>
+Mobile number: <input type="text" name="phno">
+   <br><br>
+E-mail: <input type="text" name="email">
+   <br><br>
+Zip: <input type="text" name="zip">
+   <br><br>  
+</fieldset>
+<br><br> 
+ <input type="submit" name="submit" value="Submit"> 
+</form>
+</body>
+</html>
